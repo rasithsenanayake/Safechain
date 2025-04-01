@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.App {
+  text-align: center;
+  position: relative;
+  min-height: calc(100vh - 80px);
+  font-family: 'Poppins', sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.bg {
+  background-color: #f5f7fa;
+  bottom: 0;
+  left: -50%;
+  opacity: 0.4;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 900px;
+}
+
+header {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  /* Removed the border-radius that was creating the curved shape */
+}
+
+header .overlay {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient(135deg, #9f05ff69 10%, #fd5e086b 100%);
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+
+h3,
+p {
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 30px;
+  line-height: 30px;
+}
+
+.share {
+  padding: 10px 20px;
+  background: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.share:hover {
+  background: #e91e63;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Updated Professional Styles */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #333333; /* Default text color set to dark */
+  background-color: #f8f9fa;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #3f51b5, #1a237e);
+  color: white;
+  padding: 1.2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 10;
+}
+
+.app-header h1 {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.account-info {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.6rem 1.2rem;
+  border-radius: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+  white-space: nowrap;
+  color: white;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.account-info:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Header buttons container */
+.header-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Unified button style replacing .share and .logout */
+.app-button {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+
+.app-button:hover {
+  background: white;
+  color: #3f51b5;
+  border-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Remove these styles as they're replaced by .app-button */
+.share, .share:hover, .logout, .logout:hover {
+  /* These styles will be overridden by app-button */
+}
+
+.content-container {
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  color: #212121; /* Dark text for content */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Two-column layout */
+.content-row {
+  display: flex;
+  width: 100%;
+}
+
+.content-left {
+  flex: 1;
+  text-align: left;
+  padding-right: 2rem;
+}
+
+.content-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Make all standard text elements black in the body */
+p, h1, h2, h3, h4, h5, h6, span, div, label, button, input {
+  font-family: 'Poppins', sans-serif;
+  color: #212121;
+}
+
+/* Override headers in the app header */
+.app-header h1,
+.app-header p {
+  color: white;
+}
+
+/* More professional body styling */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #212121;
+  line-height: 1.6;
+}
+
+/* Make backgrounds more subtle */
+.bg {
+  background-color: #f5f7fa;
+  opacity: 0.4;
+}
+
+/* Network error message styling */
+.network-error {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-align: center;
+  margin: 10px auto;
+  max-width: 90%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}

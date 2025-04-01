@@ -1,0 +1,78 @@
+.top {
+  margin: 40px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.choose {
+  background-color: #3f51b5;
+  background-image: linear-gradient(135deg, #3f51b5, #2196f3);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.choose:hover {
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.4);
+  transform: translateY(-2px);
+}
+
+.textArea {
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.upload {
+  background-color: #4caf50;
+  background-image: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.upload:hover {
+  background-color: #2e7d32;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+  transform: translateY(-2px);
+}
+
+.upload:disabled,
+.upload[disabled] {
+  background: #cccccc;
+  color: #666666;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+div {
+  padding: 5px 10px;
+}
