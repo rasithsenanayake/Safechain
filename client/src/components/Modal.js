@@ -1,58 +1,138 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Modal.css";
-const Modal = ({ setModalOpen, contract }) => {
-  const sharing = async () => {
-    const address = document.querySelector(".address").value;
-    await contract.allow(address);
-    setModalOpen(false);
-  };
-  useEffect(() => {
-    const accessList = async () => {
-      const addressList = await contract.shareAccess();
-      let select = document.querySelector("#selectNumber");
-      const options = addressList;
 
-      for (let i = 0; i < options.length; i++) {
-        let opt = options[i];
-        let e1 = document.createElement("option");
-        e1.textContent = opt;
-        e1.value = opt;
-        select.appendChild(e1);
+const Modal = ({ setModalOpen, contract, account }) => {
+  const [errorMsg, setErrorMsg] = useState("");
+  const [accessList, setAccessList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const sharing = async () => {
+    const addressInput = document.querySelector(".modal-input");
+    const address = addressInput?.value;
+    
+    if (!address) {
+      setErrorMsg("Please enter a valid address");
+      return;
+    }
+
+    if (!contract) {
+      setErrorMsg("Contract not connected");
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      // Check if the contract has an 'allow' method
+      if (typeof contract.allow === 'function') {
+        await contract.allow(address);
+        setModalOpen(false);
+      } else if (typeof contract.giveAccess === 'function') {
+        // Try alternative method name if 'allow' is not available
+        await contract.giveAccess(address);
+        setModalOpen(false);
+      } else {
+        setErrorMsg("This contract doesn't support sharing functionality");
+      }
+    } catch (error) {
+      console.error("Error sharing access:", error);
+      setErrorMsg(error.message || "Failed to share access");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const fetchAccessList = async () => {
+      if (!contract) return;
+      
+      try {
+        setIsLoading(true);
+        
+        // Try different possible method names for getting the access list
+        let addresses = [];
+        
+        try {
+          if (typeof contract.shareAccess === 'function') {
+            addresses = await contract.shareAccess();
+          } else if (typeof contract.getSharedAddresses === 'function') {
+            addresses = await contract.getSharedAddresses();
+          } else if (typeof contract.accessList === 'function') {
+            addresses = await contract.accessList(account);
+          } else {
+            console.warn("Could not find access list method in contract");
+          }
+        } catch (e) {
+          console.warn("Error fetching access list:", e);
+        }
+        
+        setAccessList(Array.isArray(addresses) ? addresses : []);
+      } catch (error) {
+        console.error("Error loading access list:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
-    contract && accessList();
-  }, [contract]);
+
+    fetchAccessList();
+  }, [contract, account]);
+
   return (
-    <>
-      <div className="modalBackground">
-        <div className="modalContainer">
-          <div className="title">Share with</div>
-          <div className="body">
+    <div className="modal-background">
+      <div className="modal-container">
+        <div className="modal-title-container">
+          <h2>Share with</h2>
+          <button 
+            className="modal-close-button" 
+            onClick={() => setModalOpen(false)}
+          >
+            ×
+          </button>
+        </div>
+        
+        <div className="modal-body">
+          <div className="modal-form">
             <input
               type="text"
-              className="address"
-              placeholder="Enter Address"
-            ></input>
-          </div>
-          <form id="myForm">
-            <select id="selectNumber">
-              <option className="address">People With Access</option>
-            </select>
-          </form>
-          <div className="footer">
-            <button
-              onClick={() => {
-                setModalOpen(false);
-              }}
-              id="cancelBtn"
-            >
-              Cancel
-            </button>
-            <button onClick={() => sharing()}>Share</button>
+              className="modal-input"
+              placeholder="Enter Ethereum Address"
+            />
+            
+            {errorMsg && <p className="error-message">{errorMsg}</p>}
+            
+            {accessList.length > 0 && (
+              <div className="access-list-container">
+                <h3>People With Access</h3>
+                <ul className="access-list">
+                  {accessList.map((address, index) => (
+                    <li key={index} className="access-list-item">
+                      {address}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
+        
+        <div className="modal-buttons">
+          <button
+            className="modal-button secondary"
+            onClick={() => setModalOpen(false)}
+            disabled={isLoading}
+          >
+            Cancel
+          </button>
+          <button 
+            className="modal-button primary"
+            onClick={sharing}
+            disabled={isLoading}
+          >
+            {isLoading ? "Processing..." : "Share"}
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
+
 export default Modal;

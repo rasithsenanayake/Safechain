@@ -1,76 +1,166 @@
-.modalBackground {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.modal-background {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
 }
 
-.modalContainer {
-  width: 500px;
-  height: 200px;
-  border-radius: 12px;
+.modal-container {
+  width: 90%;
+  max-width: 500px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.modalContainer {
-  display: inline-block;
-  text-align: center;
-}
-.title {
-  display: inline-block;
-  text-align: center;
+.modal-container h2, .modal-container h3 {
+  margin-top: 0;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 
-.titleCloseBtn {
+.modal-container h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.modal-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.modal-close-button:hover {
+  color: #f44336;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-input {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.modal-input:focus {
+  border-color: #3f51b5;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+.modal-buttons {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.titleCloseBtn button {
-  background-color: transparent;
+.modal-button {
+  padding: 10px 20px;
   border: none;
-  font-size: 1px;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.modalContainer .body {
-  flex: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.7rem;
-  text-align: center;
-}
-
-.modalContainer .footer {
-  flex: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalContainer .footer button {
-  width: 100px;
-  height: 35px;
-  margin: 10px;
-  border: none;
-  background-color: cornflowerblue;
+.modal-button.primary {
+  background-color: #3f51b5;
+  background-image: linear-gradient(135deg, #3f51b5, #2196f3);
   color: white;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#cancelBtn {
-  background-color: crimson;
+.modal-button.primary:hover {
+  background-image: linear-gradient(135deg, #5c6bc0, #42a5f5);
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.4);
+  transform: translateY(-2px);
 }
+
+.modal-button.secondary {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.modal-button.secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.modal-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 14px;
+  margin: 5px 0 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.access-list-container {
+  margin-top: 15px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.access-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.access-list-item {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.access-list-item:last-child {
+  border-bottom: none;
+}
+
 .address {
   display: block;
   margin: auto;

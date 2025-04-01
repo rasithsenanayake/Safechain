@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .top {
   margin: 40px;
   display: flex;
@@ -75,4 +77,361 @@ input[type="file"] {
 
 div {
   padding: 5px 10px;
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.notification p {
+  margin: 0;
+  padding-right: 10px;
+}
+
+.notification.success {
+  background-color: #4caf50;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+
+.notification.info {
+  background-color: #2196f3;
+}
+
+.notification-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+}
+
+.notification-close:hover {
+  opacity: 0.8;
+}
+
+/* Disabled state styles */
+.upload-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.input-file:disabled + .file-input-label {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* File upload container */
+.file-upload-container {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Upload form */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+/* File input label */
+.file-input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background-color: #3f51b5;
+  background-image: linear-gradient(135deg, #3f51b5, #2196f3);
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  min-height: 48px;
+}
+
+.file-input-label:hover {
+  background-image: linear-gradient(135deg, #5c6bc0, #42a5f5);
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Hide the native file input */
+input[type="file"] {
+  display: none;
+}
+
+/* Upload button */
+.upload-button {
+  padding: 12px 20px;
+  background-color: #4caf50;
+  background-image: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.upload-button:hover {
+  background-image: linear-gradient(135deg, #66bb6a, #388e3c);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+  transform: translateY(-2px);
+}
+
+.upload-button:disabled {
+  background: #cccccc;
+  background-image: none;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Notification styles */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.notification p {
+  margin: 0;
+  padding-right: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.notification.success {
+  background-color: #4caf50;
+  background-image: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+
+.notification.error {
+  background-color: #f44336;
+  background-image: linear-gradient(135deg, #f44336, #c62828);
+}
+
+.notification.info {
+  background-color: #2196f3;
+  background-image: linear-gradient(135deg, #2196f3, #1565c0);
+}
+
+.notification-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+}
+
+.notification-close:hover {
+  opacity: 0.8;
+}
+
+/* Disabled state */
+.input-file:disabled + .file-input-label {
+  background-color: #cccccc;
+  background-image: none;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* File name display */
+.file-name {
+  word-break: break-all;
+  max-width: 100%;
+}
+
+.select-file-prompt {
+  font-weight: 500;
+}
+
+/* Progress bar styles */
+.upload-progress-container {
+  margin: 15px 0;
+  width: 100%;
+}
+
+.upload-progress-label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-progress-bar {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.upload-progress-fill {
+  height: 100%;
+  background-image: linear-gradient(to right, #3f51b5, #2196f3);
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
+
+/* Animate the progress bar when it reaches 100% */
+.upload-progress-fill[style*="width: 100%"] {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* Floating progress bar styles */
+.floating-progress-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 15px;
+  z-index: 999;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.floating-progress-container.minimized {
+  width: auto;
+  padding: 10px 15px;
+}
+
+.floating-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.floating-progress-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.floating-progress-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.minimize-button, .close-progress-button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.minimize-button:hover, .close-progress-button:hover {
+  background-color: #f0f0f0;
+}
+
+.floating-progress-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Modify existing progress bar for the floating container */
+.floating-progress-container .upload-progress-bar {
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.floating-progress-container .upload-progress-fill {
+  height: 100%;
+  background-image: linear-gradient(to right, #3f51b5, #2196f3);
+  transition: width 0.3s ease;
+}
+
+/* Give more emphasis to the progress phase text */
+.blockchain-phase {
+  color: #3f51b5;
+  font-weight: 500;
+}
+
+/* Animation for the floating progress container */
+@keyframes slideInBottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.floating-progress-container {
+  animation: slideInBottom 0.3s ease-out;
 }
