@@ -1,9 +1,31 @@
 {
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "hardhat": "^2.22.19"
+  "name": "safe-chain",
+  "version": "0.1.0",
+  "description": "A secure blockchain implementation",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasithsenanayake/Safe-Chain.git"
+  },
+  "keywords": [
+    "blockchain",
+    "security",
+    "cryptography"
+  ],
+  "author": "Rasith Senanayake",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rasithsenanayake/Safe-Chain/issues"
+  },
+  "homepage": "https://github.com/rasithsenanayake/Safe-Chain#readme",
   "dependencies": {
-    "create-react-app": "^5.1.0"
+    "crypto-js": "^4.1.1"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
